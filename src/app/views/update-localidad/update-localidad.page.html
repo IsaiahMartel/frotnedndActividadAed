@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>update-localidad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nombre">
+        Nombre
+      </label>
+      <input type="text" formControlName="nombre">
+    </div>
+
+    <div>
+      <label for="poblacion">
+        Poblacion
+      </label>
+      <input type="text" formControlName="poblacion">
+    </div>
+
+    <button id="add-button" class="button" type="submit">Añadir</button>
+  </form>
+</ion-content>

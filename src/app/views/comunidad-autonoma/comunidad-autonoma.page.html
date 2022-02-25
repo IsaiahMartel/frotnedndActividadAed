@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>comunidad-autonoma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" *ngFor="let p of comunidadAutonomaArray">
+    <ion-card>
+      <ion-card-header>
+        {{p.nombre}}
+
+      </ion-card-header>
+      <ion-card-content>Población: {{p.poblacion}}
+        Superficie: {{p.Superficie}}
+      </ion-card-content>
+  
+
+
+      <ion-icon name="create" id="update-button" [routerLink]="['/update-comunidad-autonoma/', p.idComunidad]"></ion-icon>
+      <ion-icon name="trash" id="delete-button" (click)="deleteComunidadAutonoma(p.idComunidad)">
+      </ion-icon>
+      
+    </ion-card>
+  </div>
+  <ion-icon name="add-circle" id="add-button" routerLink="/add-comunidad-autonoma"></ion-icon>
+</ion-content>

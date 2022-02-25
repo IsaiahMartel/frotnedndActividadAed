@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-comunidad-autonoma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div>
+    <label for="nombre">
+      Nombre
+    </label>
+          <input type="text" formControlName="nombre">
+        </div>
+
+        <div>
+          <label for="poblacion">
+            Poblacion
+          </label>
+                <input type="text" formControlName="poblacion">
+              </div>
+
+              <div>
+                <label for="superficie">
+                  Superfcie
+                </label>
+                      <input type="text" formControlName="superficie">
+                    </div>
+      
+
+              <button id="add-button" class="button" type="submit">Añadir</button>
+  </form>
+
+</ion-content>

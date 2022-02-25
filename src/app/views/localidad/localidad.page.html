@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>localidad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" *ngFor="let l of localidadArray">
+    <ion-card>
+      <ion-card-header>
+        {{l.nombre}}
+
+      </ion-card-header>
+      <ion-card-content>Población: {{l.poblacion}}</ion-card-content>
+  
+
+
+      <ion-icon name="create" id="update-button" [routerLink]="['/update-localidad/', l.idLocalidad]"></ion-icon>
+      <ion-icon name="trash" id="delete-button" (click)="deleteLocalidad(l.idLocalidad)">
+      </ion-icon>
+      
+    </ion-card>
+  </div>
+  <ion-icon name="add-circle" id="add-button" routerLink="/add-localidad"></ion-icon>
+</ion-content>

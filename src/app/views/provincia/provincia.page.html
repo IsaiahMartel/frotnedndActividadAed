@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>provincia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" *ngFor="let p of provinciaArray">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{p.codPostal}}</ion-card-title>
+        {{p.nombre}}
+
+      </ion-card-header>
+      <ion-card-content>Población: {{p.poblacion}}
+        Superficie: {{p.Superficie}}
+      </ion-card-content>
+  
+
+
+      <ion-icon name="create" id="update-button" [routerLink]="['/update-provincia/', p.codPostal]"></ion-icon>
+      <ion-icon name="trash" id="delete-button" (click)="deleteProvincia(p.codPostal)">
+      </ion-icon>
+      
+    </ion-card>
+  </div>
+  <ion-icon name="add-circle" id="add-button" routerLink="/add-provincia"></ion-icon>
+</ion-content>
