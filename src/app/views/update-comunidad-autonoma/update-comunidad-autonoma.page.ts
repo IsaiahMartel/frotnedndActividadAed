@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ComunidadAutonoma } from 'src/app/models/comunidad-autonoma/comunidad-autonoma';
 import { ComunidadAutonomaService } from 'src/app/services/comunidad-autonoma/comunidad-autonoma.service';
 
 @Component({
@@ -30,8 +31,13 @@ export class UpdateComunidadAutonomaPage implements OnInit {
   }
 
   onSubmit(): void {
-    this.comunidadAutonomaService.addComunidadAutonoma(this.updateForm.value).subscribe(() => {
+    let nuevaComunidadAutonoma:ComunidadAutonoma=new ComunidadAutonoma();
+    nuevaComunidadAutonoma=this.updateForm.value;
+    nuevaComunidadAutonoma.idComunidad=this.idComunidad;
+    this.comunidadAutonomaService.updateComunidadAutonoma(nuevaComunidadAutonoma).subscribe(() => {
+
       this.updateForm.reset();
+      window.history.back();
     });
 
   }

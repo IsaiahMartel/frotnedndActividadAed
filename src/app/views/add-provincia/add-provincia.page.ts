@@ -12,7 +12,8 @@ export class AddProvinciaPage implements OnInit {
     codPostal: '',
     nombre: '',
     poblacion: '',
-    superficie: ''
+    superficie: '',
+    fkLocalidad: ''
   });
 
   constructor(private formBuilder: FormBuilder, private provinciaService: ProvinciaService) { }
@@ -26,7 +27,7 @@ export class AddProvinciaPage implements OnInit {
 
       this.addForm.reset();
 
-
+      window.history.back();
 
     });
   }

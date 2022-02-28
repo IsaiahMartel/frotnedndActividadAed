@@ -33,13 +33,13 @@ export class LocalidadService {
   }
 
   addLocalidad(localidad: Localidad) {
-    let bodyEncoded = new URLSearchParams();
+    //let bodyEncoded = new URLSearchParams();
     // bodyEncoded.append("nombre", localidad.nombre.toString());
     // bodyEncoded.append("poblacion", localidad.poblacion.toString());
 
 
 
-    const body = bodyEncoded.toString();
+    //const body = bodyEncoded.toString();
     return this.httpClient.post<Localidad>(this.endpoint, JSON.stringify(localidad), httpOptions);
   }
 

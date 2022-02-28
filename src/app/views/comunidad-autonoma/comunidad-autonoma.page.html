@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
     <ion-title>comunidad-autonoma</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,8 +12,9 @@
         {{p.nombre}}
 
       </ion-card-header>
-      <ion-card-content>Población: {{p.poblacion}}
-        Superficie: {{p.Superficie}}
+      <ion-card-content><ion-card-subtitle>Población: {{p.poblacion}}</ion-card-subtitle>
+        <ion-card-subtitle> Superficie: {{p.superficie}}</ion-card-subtitle> 
+       
       </ion-card-content>
   
 

@@ -23,6 +23,7 @@ export class UpdateProvinciaPage implements OnInit {
       nombre: [''],
       poblacion: [''],
       superficie: [''],
+      fkLocalidad: ['']
 
     })
 
@@ -30,11 +31,11 @@ export class UpdateProvinciaPage implements OnInit {
 
   onSubmit(): void {
 
-    this.provinciaService.addProvincia(this.updateForm.value).subscribe(() => {
+    this.provinciaService.updateProvincia(this.updateForm.value).subscribe(() => {
 
       this.updateForm.reset();
 
-
+      window.history.back();
 
     });
 
@@ -47,6 +48,7 @@ export class UpdateProvinciaPage implements OnInit {
         nombre: data["nombre"],
         poblacion: data['poblacion'],
         superficie: data['superficie'],
+        fkLocalidad: data['fkLocalidad'],
       });
     });
   }

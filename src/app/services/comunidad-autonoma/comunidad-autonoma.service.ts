@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -33,24 +33,12 @@ export class ComunidadAutonomaService {
   }
 
   addComunidadAutonoma(comunidadAutonoma: ComunidadAutonoma) {
-    let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("nombre", comunidadAutonoma.nombre.toString());
-    bodyEncoded.append("poblacion", comunidadAutonoma.poblacion.toString());
-    bodyEncoded.append("superficie", comunidadAutonoma.superficie.toString());
-    bodyEncoded.append("fkPostal", comunidadAutonoma.fkPostal.toString());
-    
-    const body = bodyEncoded.toString();
-    return this.httpClient.post<ComunidadAutonoma>(this.endpoint, body, httpOptions);
+
+    return this.httpClient.post<ComunidadAutonoma>(this.endpoint, JSON.stringify(comunidadAutonoma), httpOptions);
   }
 
   updateComunidadAutonoma(comunidadAutonoma: ComunidadAutonoma) {
-    let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("nombre", comunidadAutonoma.nombre.toString());
-    bodyEncoded.append("poblacion", comunidadAutonoma.poblacion.toString());
-    bodyEncoded.append("superficie", comunidadAutonoma.superficie.toString());
-    bodyEncoded.append("fkPostal", comunidadAutonoma.fkPostal.toString());
-    const body = bodyEncoded.toString();
-    return this.httpClient.put<ComunidadAutonoma>(this.endpoint, body);
+    return this.httpClient.put<ComunidadAutonoma>(this.endpoint, JSON.stringify(comunidadAutonoma), httpOptions);
   }
 
   deleteComunidadAutonoma(id: number) {

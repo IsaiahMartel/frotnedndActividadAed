@@ -27,7 +27,7 @@ export class AddLocalidadPage implements OnInit {
 
       this.addForm.reset();
 
-    
+      window.history.back();
 
     });
   

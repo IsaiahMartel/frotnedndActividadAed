@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ComunidadAutonomaService } from 'src/app/services/comunidad-autonoma/comunidad-autonoma.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-comunidad-autonoma',
@@ -15,10 +14,11 @@ export class AddComunidadAutonomaPage implements OnInit {
     nombre: '',
     poblacion: '',
     superficie: '',
+    fkPostal: '',
   });
 
   constructor(private activatedRoute: ActivatedRoute, private formBuilder : FormBuilder, 
-    private comunidadAutonomaService: ComunidadAutonomaService, private _location: Location) { }
+    private comunidadAutonomaService: ComunidadAutonomaService,) { }
 
   ngOnInit() {
   }
@@ -28,7 +28,7 @@ export class AddComunidadAutonomaPage implements OnInit {
 
       this.addForm.reset();
 
-      this._location.back();
+      window.history.back();
 
     });
   

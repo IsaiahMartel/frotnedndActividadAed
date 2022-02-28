@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -33,27 +33,13 @@ export class ProvinciaService {
   }
 
   addProvincia(provincia: Provincia) {
-    let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("codPostal", provincia.codPostal.toString());
-    bodyEncoded.append("nombre", provincia.nombre.toString());
-    bodyEncoded.append("poblacion", provincia.poblacion.toString());
-    bodyEncoded.append("superficie", provincia.superficie.toString());
-    bodyEncoded.append("fkLocalidad", provincia.fkLocalidad.toString());
-
-    const body = bodyEncoded.toString();
-    return this.httpClient.post<Provincia>(this.endpoint, body);
+    console.log(provincia);
+    
+    return this.httpClient.post<Provincia>(this.endpoint, JSON.stringify(provincia), httpOptions);
   }
 
   updateProvincia(provincia: Provincia) {
-    let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("codPostal", provincia.codPostal.toString());
-    bodyEncoded.append("nombre", provincia.nombre.toString());
-    bodyEncoded.append("poblacion", provincia.poblacion.toString());
-    bodyEncoded.append("superficie", provincia.superficie.toString());
-    bodyEncoded.append("fkLocalidad", provincia.fkLocalidad.toString());
-
-    const body = bodyEncoded.toString();
-    return this.httpClient.put<Provincia>(this.endpoint, body);
+    return this.httpClient.put<Provincia>(this.endpoint, JSON.stringify(provincia), httpOptions);
   }
 
   deleteProvincia(id: number) {
